@@ -74,3 +74,11 @@ a:visited {
   max-height: 300px;
   max-width: 300px;
 }
+
+.button {
+    background-color: #70b180;
+}
+
+.footer {
+  padding: 100px;
+}
