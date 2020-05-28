@@ -1,13 +1,17 @@
 body {
-  background-color: #131d39;
+  color: #f2f2f2;
+  background-color: #0c1d3b;
+  font-family: 'Courier New', 'Courier', 'monospace';
+}
+
+body, html {
+    height: 100%;
 }
 
 #content {
   margin-left: auto;
   margin-right: auto;
   width: 650px;
-  color: #f2f2f2;
-  font-family: 'Courier New', 'Courier', 'monospace';
 }
 
 #greeting-container {
@@ -15,35 +19,58 @@ body {
 }
 
 .header {
-  color: #f2f2f2;
-  font-family: 'Courier New', 'Courier', 'monospace';
+    color: #70b180;
 }
 
 .topnav {
   overflow: hidden;
   background-color: #242e42;
-  font-family: 'Courier New', 'Courier', 'monospace';
 }
 
-/* Navbar links */
+/* Nav links */
 .topnav a {
   float: left;
   display: block;
+  color:#f2f2f2;
   background-color: #242e42;
-  color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-/* Links - change color on hover */
+/* Change link color on hover */
 .topnav a:hover {
-  background-color: #70b180;
   color: #131d39;
+  background-color: #70b180;
+}
+
+/*Change visited nav links back to white*/
+.topnav a:visited {
+    color: #f2f2f2;
+}
+
+.hero-image {
+    background-image: url(images/logo.svg);
+    height: 90%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+a:link {
+    color: #70b180;
+}
+
+a:visited { 
+    color: #ec6d2d;
+}
+
+.column {
+    float: left;
+    width: 50%;
 }
 
 .image-thumbnails img {
-  margin: 10px;
-  max-height: 350px;
-  max-width: 350px;
+  margin: 25px;
+  max-height: 300px;
+  max-width: 300px;
 }
