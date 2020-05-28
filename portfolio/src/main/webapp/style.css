@@ -1,11 +1,55 @@
-body {
+/* Header */
+.header {
+  color: #70b180;
+}
+
+#greeting-container {
+  margin-top: 20px;
+}
+
+/* Top Navigation */
+.topnav {
+  background-color: #242e42;
+  overflow: hidden;
+}
+
+.topnav a {
+  background-color: #242e42;
+  color:#f2f2f2;
+  display: block;
+  float: left;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #70b180;
+  color: #131d39;
+}
+
+.topnav a:visited {
   color: #f2f2f2;
+}
+
+.hero-image {
+  background-image: url(images/logo.svg);
+  background-position: center;
+  background-size: cover;
+  color: #ec6d2d;
+  height: 90%;
+  position: relative;
+}
+
+/* Body */
+body {
   background-color: #0c1d3b;
+  color: #f2f2f2;
   font-family: 'Courier New', 'Courier', 'monospace';
 }
 
 body, html {
-    height: 100%;
+  height: 100%;
 }
 
 #content {
@@ -14,59 +58,17 @@ body, html {
   width: 650px;
 }
 
-#greeting-container {
-  margin-top: 20px;
-}
-
-.header {
-    color: #70b180;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #242e42;
-}
-
-/* Nav links */
-.topnav a {
-  float: left;
-  display: block;
-  color:#f2f2f2;
-  background-color: #242e42;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change link color on hover */
-.topnav a:hover {
-  color: #131d39;
-  background-color: #70b180;
-}
-
-/*Change visited nav links back to white*/
-.topnav a:visited {
-    color: #f2f2f2;
-}
-
-.hero-image {
-    background-image: url(images/logo.svg);
-    height: 90%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
 a:link {
-    color: #70b180;
+  color: #70b180;
 }
 
 a:visited { 
-    color: #ec6d2d;
+  color: #ec6d2d;
 }
 
 .column {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 .image-thumbnails img {
@@ -76,9 +78,24 @@ a:visited {
 }
 
 .button {
-    background-color: #70b180;
+  background-color: #ec6d2d;
+  border: none;
+  color: #f2f2f2;
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px 20px;
+  text-decoration: none;
 }
 
+.button:hover {
+  background-color: #ca5e28;
+}
+
+.container {
+  margin: 20px;
+}
+
+/* Footer */
 .footer {
   padding: 100px;
 }
