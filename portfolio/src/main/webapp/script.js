@@ -39,10 +39,15 @@ function addRandomFact() {
  * Adds blinking to cursor.
  */
 function blink() {
-  var opacityState = document.getElementById("blinking-cursor");
-  if (opacityState.style.opacity=="1") {
-    opacityState.style.opacity="0";
+  var cursor = document.getElementById("blinking-cursor");
+  if (cursor.style.opacity == "1") {
+    cursor.style.opacity = "0";
   } else {
-    opacityState.style.opacity="1";
+    cursor.style.opacity = "1";
   }
-} setInterval(blink,800);
+} 
+
+/**
+ * Sets interval of blinking.
+ */
+setInterval(blink,800);
