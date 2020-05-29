@@ -111,6 +111,21 @@ a:visited {
   margin: 20px;
 }
 
+.contact-intro {
+  text-align: center;
+}
+
+.contact-card {
+  background-color: #242e42;
+  margin: auto;
+  max-width: 350px;
+  text-align: center;
+}
+
+.contact-card:hover {
+  box-shadow: 5px 5px #09172e;
+}
+
 /* Footer */
 .footer {
   padding: 100px;
