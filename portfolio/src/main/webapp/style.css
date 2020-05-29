@@ -1,6 +1,10 @@
 /* Header */
 .header {
-  color: #70b180;
+  background-image: url(images/header.svg);
+  background-position: left;
+  background-size: cover;
+  height: 10%;
+  width: 30%;
 }
 
 #greeting-container {
@@ -37,8 +41,20 @@
   background-position: center;
   background-size: cover;
   color: #ec6d2d;
-  height: 90%;
+  height: 76%;
   position: relative;
+}
+
+#newline {
+  color: #ec6d2d;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#blinking-cursor {
+  color: #ec6d2d;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* Body */

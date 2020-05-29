@@ -34,3 +34,15 @@ function addRandomFact() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
+
+/**
+ * Adds blinking to cursor.
+ */
+function blink() {
+  var opacityState = document.getElementById("blinking-cursor");
+  if (opacityState.style.opacity=="1") {
+    opacityState.style.opacity="0";
+  } else {
+    opacityState.style.opacity="1";
+  }
+} setInterval(blink,800);
