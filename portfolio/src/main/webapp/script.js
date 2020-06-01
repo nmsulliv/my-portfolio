@@ -36,6 +36,15 @@ function addRandomFact() {
 }
 
 /**
+ * Fetches a message and adds it to the DOM
+ */
+function getMessage() {
+  fetch('/data').then(response => response.text()).then((quote) => {
+    document.getElementById('msg-container').innerText = quote;
+  });
+}
+
+/**
  * Adds blinking to cursor.
  */
 function blink() {
