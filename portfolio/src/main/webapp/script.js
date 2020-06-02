@@ -39,7 +39,7 @@ function addRandomFact() {
  * Fetches a message and adds it to the DOM
  */
 function getMessage() {
-  fetch('/data').then(response => response.text()).then((quote) => {
+  fetch('/data').then(response => response.json()).then((quote) => {
     document.getElementById('msg-container').innerText = quote;
   });
 }
