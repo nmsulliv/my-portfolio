@@ -24,12 +24,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
+
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  ArrayList comments = new ArrayList();
+  List<String> comments = new ArrayList<String>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -58,7 +60,7 @@ public class DataServlet extends HttpServlet {
   /**
    * Converts a ServerStats instance into a JSON string using the Gson library. 
    */
-  private String convertToJson(ArrayList<String> messages) {
+  private String convertToJson(List<String> messages) {
     Gson gson = new Gson();
     String json = gson.toJson(messages);
     return json;
