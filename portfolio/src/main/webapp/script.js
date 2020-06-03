@@ -38,10 +38,22 @@ function addRandomFact() {
 /**
  * Fetches a message and adds it to the DOM
  */
-function getMessage() {
-  fetch('/data').then(response => response.json()).then((quote) => {
-    document.getElementById('msg-container').innerText = quote;
+function getMessages() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+
+  // Build the list of past comments.
+  const pastComments = document.getElementById('comments-container');
+  comments.forEach((comment) => {
+    pastComments.appendChild(createListElement(comment));
+    });
   });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
 
 /**
