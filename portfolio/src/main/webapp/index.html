@@ -44,13 +44,28 @@
       <p>Click here to get a random fun fact about me:</p>
       <button onclick="addRandomFact()" class="button">Fact</button>
       <div id="fact-container" class="container"></div>
-      <form action="/data" method="POST">
+
+      <form action="/data" method="POST" return false;>
         <p>Leave a comment:</p>
         <input type="text" name="user-comment">
         <br/><br/>
         <input type="submit" />
       </form>
-      <body onload="getMessages()">
+
+      <form onsubmit="getComments();return false">
+        <lablel for="display">Show:<label>
+        <select num="display" id="display" >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+        </select>
+        <br/><br/>
+        <input type="submit" />
+      </form>
+
+      <body onload="getComments()">
       <div id="comments-container" class="container"></div>
     </div>
     <div class="footer"></div>

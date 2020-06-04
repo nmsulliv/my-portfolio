@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.Cursor;
+import com.google.appengine.api.datastore.FetchOptions;
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -29,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
@@ -40,8 +43,10 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    int commentsRequested = getAmount(request);
+
     List<String> comments = new ArrayList<String>();
-    for (Entity entity : results.asIterable()) {
+    for (Entity entity : results.asIterable(FetchOptions.Builder.withLimit(commentsRequested))) {
       String text = (String) entity.getProperty("text");
 
       String comment = text;
@@ -60,15 +65,32 @@ public class DataServlet extends HttpServlet {
     String text = getParameter(request, "user-comment", "");
     long timestamp = System.currentTimeMillis();
 
-    Entity taskEntity = new Entity("Comment");
-    taskEntity.setProperty("text", text);
-    taskEntity.setProperty("timestamp", timestamp);
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("text", text);
+    commentEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(taskEntity);
+    datastore.put(commentEntity);
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
+  }
+
+  /** Returns the number of comments the user has chosen to display */
+  private int getAmount(HttpServletRequest request) {
+    // Get the input from the form.
+    String amtOfCommentsString = request.getParameter("display");
+
+    // Convert the input to an int.
+    int amtOfComments;
+    try {
+      amtOfComments = Integer.parseInt(amtOfCommentsString);
+    } catch (NumberFormatException e) {
+      System.err.println("Could not convert to int: " + amtOfCommentsString);
+      return -1;
+    }
+
+    return amtOfComments;
   }
 
   /**
