@@ -16,7 +16,6 @@ package com.google.sps.servlets;
 
 import com.google.appengine.api.datastore.Cursor;
 import com.google.appengine.api.datastore.FetchOptions;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -43,7 +42,7 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    int commentsRequested = getAmount(request);
+    int commentsRequested = getNumberOfComments(request);
 
     List<String> comments = new ArrayList<String>();
     for (Entity entity : results.asIterable(FetchOptions.Builder.withLimit(commentsRequested))) {
@@ -77,20 +76,14 @@ public class DataServlet extends HttpServlet {
   }
 
   /** Returns the number of comments the user has chosen to display */
-  private int getAmount(HttpServletRequest request) {
+  private int getNumberOfComments(HttpServletRequest request) throws NumberFormatException {
     // Get the input from the form.
-    String amtOfCommentsString = request.getParameter("display");
+    String numberOfCommentsString = request.getParameter("display");
 
     // Convert the input to an int.
-    int amtOfComments;
-    try {
-      amtOfComments = Integer.parseInt(amtOfCommentsString);
-    } catch (NumberFormatException e) {
-      System.err.println("Could not convert to int: " + amtOfCommentsString);
-      return -1;
-    }
+    int numberOfComments = Integer.parseInt(numberOfCommentsString);
 
-    return amtOfComments;
+    return numberOfComments;
   }
 
   /**

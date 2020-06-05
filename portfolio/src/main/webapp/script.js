@@ -36,7 +36,7 @@ function addRandomFact() {
 }
 
 /**
- * Fetches a message and adds it to the DOM
+ * Fetches a comment and adds it to the DOM
  */
 function getComments() {
   var commentsRequested = document.getElementById('display').value;
@@ -44,7 +44,7 @@ function getComments() {
 
   clearComments();
 
-  // Build the list of past comments.
+  // Builds the list of past comments.
   const pastComments = document.getElementById('comments-container');
   comments.forEach((comment) => {
     pastComments.appendChild(createListElement(comment));
@@ -52,12 +52,16 @@ function getComments() {
   });
 }
 
+/** Tells the server to delete all comments. */
+function deleteComments() {
+  fetch('/delete-data', {method: 'POST'}).then(response => response.getComments());
+}
+
 /** Clears the previous comments. */
 function clearComments() {
   var currentComments = document.getElementById("comments-container");
   currentComments.innerText = " ";
 }
-
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {
