@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Nicole Sullivan</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/coding.svg" type="image/svg" sizes="16x16">
     <script src="script.js"></script>
   </head>
   <body>
@@ -32,12 +33,15 @@
             for Google this summer, and I am thrilled to learn about web 
             development! After I graduate I plan on getting my PhD, and one
             day I hope to conduct interdisciplinary AI/ML and 
-            environmental science research - I am passionate about the environment!
+            environmental science research - I am passionate about the 
+            environment!
           </p>
         </div>
         <div class="column">
           <div class="image-thumbnails">
-            <a href="images/me.jpg"><img src="images/me.jpg" alt="Picture of Nicole"/></a>
+            <a href="images/me.jpg">
+            <img src="images/me.jpg" alt="Picture of Nicole"/>
+            </a>
           </div>
         </div>
       </div>
@@ -45,14 +49,17 @@
       <button onclick="addRandomFact()" class="button">Fact</button>
       <div id="fact-container" class="container"></div>
 
-      <form action="/data" method="POST">
-        <p>Leave a comment:</p>
-        <input type="text" name="user-comment">
+      <form action="/data" method="POST" class="submit-container">
+        <h4>Feel free to leave a comment!</h4>
+        <p>Name</p>
+        <input type="text" name="user-name" class="name-field">
+        <p>Comment</p>
+        <input type="text" name="user-comment" class="text-field">
         <br/><br/>
         <input type="submit" class="button" />
-        <br/><br/>
       </form>
 
+      <div class ="select-container">
       <form onchange="getComments();return false">
         <lablel for="display">Show:<label>
         <select num="display" id="display" >
@@ -62,15 +69,26 @@
           <option value="20">20</option>
           <option value="25">25</option>
         </select>
-        <br/><br/>
       </form>
+      </div>
 
-      <body onload="getComments()">
       <h3>Comment Section</h3>
-      <div id="comments-container" class="container"></div>
-      <br/><br/>
-      <button onclick="deleteComments()" class="button">Delete All Comments</button>
+      <body onload="getComments()">
+      <div id="comments-container" class="comments-container"></div>
+      <div class=button-container>
+        <button class="button-delete" onclick="deleteComments()">
+          Delete All Comments
+        </button>
+      </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+      <p>
+        Icons made by 
+        <a href="https://www.flaticon.com/authors/freepik"
+        title="Freepik"> Freepik</a> from 
+        <a href="https://www.flaticon.com/" title="Flaticon">
+        www.flaticon.com</a>
+      </p>    
+    </div>
   </body>
 </html>
