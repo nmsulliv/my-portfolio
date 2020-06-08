@@ -55,6 +55,7 @@ function getComments() {
 /** Tells the server to delete all comments. */
 function deleteComments() {
   fetch('/delete-data', {method: 'POST'}).then(response => response.getComments());
+  location.reload();
 }
 
 /** Clears the previous comments. */
@@ -66,6 +67,7 @@ function clearComments() {
 /** Creates an <li> element containing text. */
 function createListElement(text) {
   const liElement = document.createElement('li');
+  liElement.className = 'comment-list';
   liElement.innerText = text;
   return liElement;
 }

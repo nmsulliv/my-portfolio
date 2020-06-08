@@ -2,9 +2,10 @@
 .header {
   background-image: url(images/header.svg);
   background-position: left;
-  background-size: cover;
-  height: 10%;
-  width: 30%;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  height: 40px;
+  margin-bottom: 5px;
 }
 
 #greeting-container {
@@ -30,6 +31,10 @@
 .topnav a:hover {
   background-color: #70b180;
   color: #131d39;
+}
+
+.topnav a:link {
+  color:#f2f2f2;
 }
 
 .topnav a:visited {
@@ -111,6 +116,75 @@ a:visited {
   margin: 20px;
 }
 
+.submit-container {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.name-field {
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px 15px;
+}
+
+.text-field{
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 30px 10px;
+  width: 100%;
+}
+
+select {
+  background-color: #ffffff;
+  border: none;
+  padding: 5px 20px;
+}
+
+.select-container {
+  float: right;
+}
+
+.comments-container {
+  background-color: #242e42;
+  border:50px ;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 200px;
+  padding: 50px
+}
+
+.comment-list {
+  background-image: url(images/icon.svg);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 120px;
+  list-style: none;
+  margin-bottom: 20px;
+	padding: 20px 50px 20px 120px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-delete{
+  background-color: #242e42;
+  border: none;
+  color: #f2f2f2;
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px 20px;
+  text-decoration: none;
+
+}
+
+.button-delete:hover {
+  background-color: #1a2231;
+}
+
 .contact-intro {
   text-align: center;
 }
@@ -129,4 +203,5 @@ a:visited {
 /* Footer */
 .footer {
   padding: 100px;
+  text-align: center;
 }
