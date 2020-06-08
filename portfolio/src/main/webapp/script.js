@@ -72,6 +72,33 @@ function createListElement(text) {
   return liElement;
 }
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Creates a chart and adds it to the page. */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Project');
+  data.addColumn('number', 'Count');
+        data.addRows([
+          ['Hate Crimes', 15],
+          ['Climate Change', 10],
+          ['Coronavirus', 5],
+          ['Unbiased News', 10],
+          ['Volunteer Opportunities', 15]
+        ]);
+
+  const options = {
+    'title': 'Next Project',
+    'width':500,
+    'height':400
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
+}
+
 /**
  * Adds blinking to cursor.
  */
