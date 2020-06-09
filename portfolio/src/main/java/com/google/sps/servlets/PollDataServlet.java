@@ -57,8 +57,8 @@ public class PollDataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
-    String project = request.getParameter("vote");
-
+    String project = getParameter(request, "project", "");
+    
     Entity voteEntity = new Entity("Vote");
     voteEntity.setProperty("project", project);
 
@@ -67,5 +67,17 @@ public class PollDataServlet extends HttpServlet {
 
     // Redirect back to the HTML page.
     response.sendRedirect("/poll.html");
+  }
+
+  /**
+  * @return the request parameter, or the default value if the parameter
+  *         was not specified by the client
+  */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
