@@ -19,19 +19,22 @@
     <div id="content">
       <div class="poll-intro">
         <h1>Poll<span id="blinking-cursor">|</span></h1>
-        <h3>Quick Question: What should be the focus of my next project?</h3>
+        <h3>Quick Question: Which topic should be the focus of my next project?</h3>
       </div>
 
       <div class ="vote-container">
-      <form action="/poll-data" method="POST">
-        <lablel for="vote">Vote:<label>
-        <select name="vote" id="vote" >
-          <option value="Hate Crimes">Hate Crimes</option>
-          <option value="Climate Change">Climate Change</option>
-          <option value="Coronavirus">Coronavirus</option>
-          <option value="Unbiased News">Unbiased News</option>
-          <option value="Volunteer Opportunities">Volunteer Opportunities</option>
-        </select>
+      <form action="/poll-data" method="POST" >
+        <input type="radio" name="project" value="Hate Crimes" >
+        <label for="Hate Crimes">Hate Crimes</label><br>
+        <input type="radio" name="project" value="Climate Change">
+        <label for="Climate Change">Climate Change</label><br>
+        <input type="radio" name="project" value="Coronavirus">
+        <label for="Coronavirus">Coronavirus</label><br>
+        <input type="radio" name="project" value="Unbiased News">
+        <label for="Unbiased News">Unbiased News</label><br>
+        <input type="radio" name="project" value="Volunteer Opportunities">
+        <label for="Volunteer Opportunities">Volunteer Opportunities</label>
+        <br>
         <button>Submit</button>
       </form>
       </div>
