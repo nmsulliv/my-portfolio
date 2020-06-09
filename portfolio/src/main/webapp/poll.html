@@ -21,6 +21,22 @@
         <h1>Poll<span id="blinking-cursor">|</span></h1>
         <h3>Quick Question: What should be the focus of my next project?</h3>
       </div>
+
+      <div class ="vote-container">
+      <form action="/poll-data" method="POST">
+        <lablel for="vote">Vote:<label>
+        <select name="vote" id="vote" >
+          <option value="Hate Crimes">Hate Crimes</option>
+          <option value="Climate Change">Climate Change</option>
+          <option value="Coronavirus">Coronavirus</option>
+          <option value="Unbiased News">Unbiased News</option>
+          <option value="Volunteer Opportunities">Volunteer Opportunities</option>
+        </select>
+        <button>Submit</button>
+      </form>
+      </div>
+
+      <body onload="drawChart()">
       <div id="chart-container"></div>
     </div>
     <div class="footer"></div>
