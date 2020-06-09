@@ -72,10 +72,11 @@ function createListElement(text) {
   return liElement;
 }
 
-
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
+/** Loads the packages needed for a chart*/
+function callChart() {
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+}
 
 /** Creates a chart and adds it to the page. */
 function drawChart() {
@@ -89,9 +90,14 @@ function drawChart() {
     });
 
     const options = {
-      'title': 'My Next Project',
-      'width':500,
-      'height':400
+      title: 'My Next Project',
+      colors: ['#f94144', '#f3722c', '#f9c74f', '#90be6d', '#43aa8b'],
+      width:700,
+      height:700,
+      backgroundColor: '#0c1d3b',
+      legendTextStyle: { color: '#FFF' },
+      titleTextStyle: { color: '#FFF', fontSize: 18 },
+      is3D: true
     };
 
     const chart = new google.visualization.PieChart(
