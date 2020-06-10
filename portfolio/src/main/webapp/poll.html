@@ -5,7 +5,7 @@
     <title>Nicole Sullivan</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/coding.svg" type="image/svg" sizes="16x16">
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
   <body>
@@ -17,29 +17,31 @@
       <a href="contact.html">Contact</a>
     </div>
     <div id="content">
-      <div class="poll-intro">
-        <h1>Poll<span id="blinking-cursor">|</span></h1>
-        <h3>Quick Question: Which topic should be the focus of my next project?</h3>
+      <h1>Poll<span id="blinking-cursor">|</span></h1>
+      <div class="row">
+        <div class="column">
+          <h3>Quick Question: Which topic should be the focus of my next project?</h3>
+        </div>
+        <div class="column">
+          <div class ="vote-container">
+          <form action="/poll-data" method="POST">
+            <input type="radio" name="project" value="Hate Crimes" checked>
+            <label for="Hate Crimes">Hate Crimes</label><br>
+            <input type="radio" name="project" value="Climate Change">
+            <label for="Climate Change">Climate Change</label><br>
+            <input type="radio" name="project" value="Coronavirus">
+            <label for="Coronavirus">Coronavirus</label><br>
+            <input type="radio" name="project" value="Unbiased News">
+            <label for="Unbiased News">Unbiased News</label><br>
+            <input type="radio" name="project" value="Volunteer Opportunities">
+            <label for="Volunteer Opportunities">Volunteer Opportunities</label>
+            <br>
+            <button>Submit</button>
+          </form>
+          </div>
+        </div>
       </div>
-
-      <div class ="vote-container">
-      <form action="/poll-data" method="POST" >
-        <input type="radio" name="project" value="Hate Crimes" >
-        <label for="Hate Crimes">Hate Crimes</label><br>
-        <input type="radio" name="project" value="Climate Change">
-        <label for="Climate Change">Climate Change</label><br>
-        <input type="radio" name="project" value="Coronavirus">
-        <label for="Coronavirus">Coronavirus</label><br>
-        <input type="radio" name="project" value="Unbiased News">
-        <label for="Unbiased News">Unbiased News</label><br>
-        <input type="radio" name="project" value="Volunteer Opportunities">
-        <label for="Volunteer Opportunities">Volunteer Opportunities</label>
-        <br>
-        <button>Submit</button>
-      </form>
-      </div>
-
-      <body onload="drawChart()">
+      <body onload="callChart()">
       <div id="chart-container"></div>
     </div>
     <div class="footer"></div>
