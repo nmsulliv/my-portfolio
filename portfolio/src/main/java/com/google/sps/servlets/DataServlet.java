@@ -22,14 +22,17 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 /** Servlet that returns comments data */
 @WebServlet("/data")
@@ -48,8 +51,9 @@ public class DataServlet extends HttpServlet {
     for (Entity entity : results.asIterable(FetchOptions.Builder.withLimit(commentsRequested))) {
       String name = (String) entity.getProperty("name");
       String text = (String) entity.getProperty("text");
+      String mood = (String) entity.getProperty("mood");
 
-      String comment = name + " says...\n" + text;
+      String comment = name + " says...\n\n" + text + "\n\n Mood: " + mood;
 
       comments.add(comment);
     }
@@ -63,13 +67,15 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {    
     // Get the input from the form.
-    String text = getParameter(request, "user-comment", "");
     String name = getParameter(request, "user-name", "");
+    String text = getParameter(request, "user-comment", "");
+    String mood = getSentiment(text);
     long timestamp = System.currentTimeMillis();
 
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("name", name);
     commentEntity.setProperty("text", text);
+    commentEntity.setProperty("mood", mood);
     commentEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -77,6 +83,35 @@ public class DataServlet extends HttpServlet {
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
+  }
+
+  /** Returns the sentiment of the comment as a string */
+  private String getSentiment(String text) throws IOException {
+    //Analyzes the sentiment of the comment.
+    Document doc = Document.newBuilder().setContent(text)
+      .setType(Document.Type.PLAIN_TEXT).build();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc)
+    .getDocumentSentiment();
+
+    //Calculates the sentiment score.
+    float score = sentiment.getScore();
+    languageService.close();
+
+    String sentimentString;
+    if (score >= 0.8) {
+      sentimentString = "Very Positive";
+    } else if (score >= 0.3) {
+      sentimentString = "Positive";
+    } else if (score >= 0) {
+      sentimentString = "Neutral";
+    } else if (score >= -0.7) {
+      sentimentString = "Slightly Negative";
+    } else {
+      sentimentString = "Very Negative";
+    }
+
+    return sentimentString;
   }
 
   /** Returns the number of comments the user has chosen to display */
