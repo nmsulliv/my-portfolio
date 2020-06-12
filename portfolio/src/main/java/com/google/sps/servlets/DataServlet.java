@@ -52,8 +52,9 @@ public class DataServlet extends HttpServlet {
       String name = (String) entity.getProperty("name");
       String text = (String) entity.getProperty("text");
       String mood = (String) entity.getProperty("mood");
-
-      String comment = name + " says...\n\n" + text + "\n\n Mood: " + mood;
+      
+      String comment = String.format("%1$s says...\n\n %2$s \n\n Mood: %3$s",
+        name, text, mood);
 
       comments.add(comment);
     }
