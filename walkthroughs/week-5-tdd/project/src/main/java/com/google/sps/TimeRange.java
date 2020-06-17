@@ -183,4 +183,12 @@ public final class TimeRange {
   public static TimeRange fromStartDuration(int start, int duration) {
     return new TimeRange(start, duration);
   }
+
+  /**
+   * Create a {@code TimeRange} ending at {@code end} with a duration equal to {@code duration}.
+   */
+  public static TimeRange fromEndDuration(int end, int duration) {
+    int start = end - duration;
+    return new TimeRange(start, duration);
+  }
 }
