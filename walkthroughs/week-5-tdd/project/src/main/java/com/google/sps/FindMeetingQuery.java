@@ -71,7 +71,7 @@ public final class FindMeetingQuery {
     // list of possible meeting times.
     int rangeLength = 0;
     for (int i= 0; i < available.length(); i++) {
-      if (available.get(i) == true) {
+      if ((available.get(i)) == true) {
         if ((available.nextSetBit(i + 1)) == (available.nextSetBit(i) + 1)) {
           rangeLength++;
         } else {
