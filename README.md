@@ -1,4 +1,21 @@
-# Nicole Sullivan - Google Student Training in Engineering Program
+### About
+This is the starter project for my Summer 2020 Google STEP internship!
+It's a interactive, computer science-themed, personal portfolio website.
 
-This repo contains Nicole Sullivan's portfolio and STEP Projects for 
-for summer 2020.
+### Layout
+![Landing page](/gifs/landing.gif)
+<br />
+<br />
+<br />
+
+![Projects page](/gifs/projects.gif)
+<br />
+<br />
+<br />
+
+![Poll page](/gifs/poll.gif)
+<br />
+<br />
+<br />
+
+![Contact page](/gifs/contact.gif)
