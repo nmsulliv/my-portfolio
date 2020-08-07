@@ -1,8 +1,21 @@
-This directory is where you'll write all of your code!
+### About
+This is the starter project for my Summer 2020 Google STEP internship!
+It's a interactive, computer science-themed, personal portfolio website.
 
-By default it contains a barebones web app. To run a local server, execute this
-command:
+### Layout
+![Landing page](/gifs/landing.gif)
+<br />
+<br />
+<br />
 
-```bash
-mvn package appengine:run
-```
+![Projects page](/gifs/projects.gif)
+<br />
+<br />
+<br />
+
+![Poll page](/gifs/poll.gif)
+<br />
+<br />
+<br />
+
+![Contact page](/gifs/contact.gif)
